@@ -1,3 +1,6 @@
 rootProject.name='PlaceToPay'
 include ':app'
 include ':feature:login'
+include ':libraries:actions'
+include ':libraries:uicomponents'
+include ':common'

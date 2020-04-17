@@ -19,9 +19,12 @@ object LibraryVersion {
     const val VIEWPAGERDOT = "4.1.2"
     const val AUTO_IMAGE_SLIDER = "1.3.2"
     const val ANKO = "0.10.8"
-    const val ANALYTICS = "17.2.2"
-    const val MESSAGING = "20.0.0"
     const val KRATE = "0.4.0"
+    const val KOTLIN_COROUTINE_PLAY_SERVICE = "1.1.1"
+    const val PHOTOVIEW = "2.3.0"
+    const val MATERIAL_STYLED_DIALOG = "2.1"
+    const val CIRCLE_IMAGE_VIEW = "3.1.0"
+    const val EVENT_BUS = "3.2.0"
 }
 
 object Libraries {
@@ -64,6 +67,15 @@ object Libraries {
     val ANKO = "org.jetbrains.anko:anko:${LibraryVersion.ANKO}"
     val ANKO_COMMONS = "org.jetbrains.anko:anko-commons:${LibraryVersion.ANKO}"
     val ANKO_DESING = "org.jetbrains.anko:anko-design:${LibraryVersion.ANKO}"
+
+    //PHOTOVIEW
+    val PHOTOVIEW = "com.github.chrisbanes:PhotoView:${LibraryVersion.PHOTOVIEW}"
+
+    val MATERIAL_STYLED_DIALOG = "com.github.javiersantos:MaterialStyledDialogs:${LibraryVersion.MATERIAL_STYLED_DIALOG}"
+
+    val CIRCLE_IMAGE_VIEW = "de.hdodenhof:circleimageview:${LibraryVersion.CIRCLE_IMAGE_VIEW}"
+
+    val EVENT_BUS = "org.greenrobot:eventbus:${LibraryVersion.EVENT_BUS}"
 }
 
 
@@ -87,9 +99,4 @@ object AndroidLibraries {
     val NAVIGATION_FRAGMENT_KTX = "androidx.navigation:navigation-fragment-ktx:${LibraryVersion.NAVIGATION}"
     val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx:${LibraryVersion.NAVIGATION}"
     val MATERIAL = "com.google.android.material:material:${LibraryVersion.MATERIAL}"
-}
-
-object FirebaseLibraries {
-    val ANALYTICS = "com.google.firebase:firebase-analytics:${LibraryVersion.ANALYTICS}"
-    val MESSAGING = "com.google.firebase:firebase-messaging:${LibraryVersion.MESSAGING}"
 }

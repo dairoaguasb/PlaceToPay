@@ -3,5 +3,4 @@ object CoreVersion {
     val KOTLIN = "1.3.71"
     val GRADLE = "3.6.1"
     val SAFE_ARGS = "1.0.0"
-    val GOOGLE_SERVICES = "4.3.3"
 }
