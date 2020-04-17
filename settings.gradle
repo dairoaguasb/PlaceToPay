@@ -1,2 +1,3 @@
 rootProject.name='PlaceToPay'
 include ':app'
+include ':feature:login'
