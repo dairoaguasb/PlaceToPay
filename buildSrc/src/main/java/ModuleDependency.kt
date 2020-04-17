@@ -1,13 +1,6 @@
 object ModulesDependency {
 
-    val APP = ":app"
-    val FEATURE_SPLASH = ":feature:splash"
-    val FEATURE_MAIN = ":feature:main"
-    val FEATURE_OBITUARIES = ":feature:obituaries"
-    val FEATURE_PLANS = ":feature:plans"
-    val FEATURE_YARD = ":feature:yard"
-    val FEATURE_REGISTER = ":feature:register"
-    val FEATURE_AFFILIATE = ":feature:affiliate"
+    val FEATURE_LOGIN = ":feature:login"
 
     val LIBRARY_UICOMPONENTS = ":libraries:uicomponents"
     val LIBRARY_ACTIONS = ":libraries:actions"

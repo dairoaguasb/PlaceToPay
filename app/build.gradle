@@ -13,8 +13,21 @@ android {
 }
 
 dependencies {
+    implementation project(ModulesDependency.FEATURE_LOGIN)
+
+    implementation project(ModulesDependency.COMMON)
+    implementation project(ModulesDependency.LIBRARY_ACTIONS)
+
+    implementation project(ModulesDependency.DATA_REMOTE)
+
     // KOIN
     implementation Libraries.KOIN
     implementation Libraries.KOIN_VIEW_MODEL
     implementation Libraries.KOIN_SCOPE
+
+    //TIMBER
+    implementation Libraries.TIMBER
+
+    // ANDROID
+    implementation AndroidLibraries.APP_COMPACT
 }

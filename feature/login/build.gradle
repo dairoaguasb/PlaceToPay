@@ -12,6 +12,9 @@ android {
 }
 
 dependencies {
+    implementation project(ModulesDependency.COMMON)
+    implementation project(ModulesDependency.LIBRARY_UICOMPONENTS)
+
     implementation AndroidLibraries.APP_COMPACT
     implementation AndroidLibraries.MATERIAL
     implementation AndroidLibraries.LIFECYCLE_LIVEDATA
