@@ -16,9 +16,10 @@ dependencies {
     implementation project(ModulesDependency.FEATURE_LOGIN)
 
     implementation project(ModulesDependency.COMMON)
-    implementation project(ModulesDependency.LIBRARY_ACTIONS)
-
     implementation project(ModulesDependency.DATA_REMOTE)
+
+    implementation project(ModulesDependency.LIBRARY_ACTIONS)
+    implementation project(ModulesDependency.LIBRARY_UICOMPONENTS)
 
     // KOIN
     implementation Libraries.KOIN
@@ -30,4 +31,5 @@ dependencies {
 
     // ANDROID
     implementation AndroidLibraries.APP_COMPACT
+
 }
