@@ -4,7 +4,7 @@
     <string name="title_login">Iniciar sesión</string>
     <string name="title_payment_method">Agregar metodo de pago</string>
 
-    <string name="username">Username</string>
+    <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="session">Iniciar sesión</string>
     <string name="approved">Aprobadas</string>

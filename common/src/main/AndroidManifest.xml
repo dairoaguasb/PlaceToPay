@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dairo.aguas.common" />
+<manifest package="dairo.aguas.common" />

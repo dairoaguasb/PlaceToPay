@@ -22,3 +22,20 @@ object Utils {
         return "$" + decimalFormat.format(value.toDouble()).replace(",", ".")
     }
 }
+
+fun String.getMD5(): String {
+    // Create MD5 Hash
+    val digest = java.security.MessageDigest.getInstance("MD5")
+    digest.update(this.toByteArray())
+    val messageDigest = digest.digest()
+
+    // Create Hex String
+    val hexString = StringBuilder()
+    for (aMessageDigest in messageDigest) {
+        var h = Integer.toHexString(0xFF and aMessageDigest.toInt())
+        while (h.length < 2)
+            h = "0$h"
+        hexString.append(h)
+    }
+    return hexString.toString()
+}

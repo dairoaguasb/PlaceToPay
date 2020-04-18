@@ -15,12 +15,12 @@ android {
 dependencies {
     implementation project(ModulesDependency.FEATURE_LOGIN)
     implementation project(ModulesDependency.FEATURE_MAIN)
-
-    implementation project(ModulesDependency.COMMON)
     implementation project(ModulesDependency.DATA_REMOTE)
-
+    implementation project(ModulesDependency.DATA_LOCAL)
     implementation project(ModulesDependency.LIBRARY_ACTIONS)
     implementation project(ModulesDependency.LIBRARY_UICOMPONENTS)
+
+    implementation project(ModulesDependency.COMMON)
 
     // KOIN
     implementation Libraries.KOIN

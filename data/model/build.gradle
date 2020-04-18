@@ -2,6 +2,8 @@ apply plugin: 'com.android.library'
 apply from: '../../android_commons.gradle'
 
 dependencies {
+    implementation project(ModulesDependency.COMMON)
+
     implementation KotlinLibraries.KOTLIN
     implementation Libraries.MOSHI
     implementation Libraries.ROOM_RUNTIME
