@@ -23,12 +23,7 @@ class PaymentFragment : Fragment() {
         paymentViewModel =
             ViewModelProviders.of(this).get(PaymentViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_payment, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        paymentViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-
-        startActivity(Actions.openPaymentActivity(context!!))
+//        startActivity(Actions.openPaymentActivity(context!!))
         return root
     }
 }
