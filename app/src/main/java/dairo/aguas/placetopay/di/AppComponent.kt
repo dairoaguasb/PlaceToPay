@@ -1,6 +1,7 @@
 package dairo.aguas.placetopay.di
 
 import dairo.aguas.data.local.di.localModule
+import dairo.aguas.data.repository.di.repositoryModule
 import dairo.aguas.feature.login.di.loginModule
 
 /**
@@ -8,5 +9,6 @@ import dairo.aguas.feature.login.di.loginModule
  */
 val appComponent = listOf(
     loginModule,
-    localModule
+    localModule,
+    repositoryModule
 )

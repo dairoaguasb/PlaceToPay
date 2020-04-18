@@ -17,6 +17,7 @@ dependencies {
     implementation project(ModulesDependency.FEATURE_MAIN)
     implementation project(ModulesDependency.DATA_REMOTE)
     implementation project(ModulesDependency.DATA_LOCAL)
+    implementation project(ModulesDependency.DATA_REPOSITORY)
     implementation project(ModulesDependency.LIBRARY_ACTIONS)
     implementation project(ModulesDependency.LIBRARY_UICOMPONENTS)
 
