@@ -60,7 +60,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:text="@string/email_test" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -83,7 +84,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:maxLength="10" />
+                android:maxLength="10"
+                android:text="@string/pass_test" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -95,6 +97,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:elevation="3dp"
+            android:onClick="@{() -> viewModel.validateField(etEmail.getText().toString(), etPass.getText().toString() )}"
             android:text="@string/session"
             android:textSize="16sp"
             android:theme="@style/ButtonPrincipal"

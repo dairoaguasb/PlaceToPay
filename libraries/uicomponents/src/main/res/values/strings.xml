@@ -24,4 +24,9 @@
     <string name="label_expired_date">MM/YY</string>
     <string name="label_card_holder">CARD HOLDER</string>
     <string name="label_cvv_code">CVV CODE</string>
+    <string name="email_test">usuario@gmail.com</string>
+    <string name="pass_test">12345</string>
+    <string name="invalid_email">Dirección de correo electrónico no válida.</string>
+    <string name="invalid_pass">Lo sentimos la contraseña es muy corta.</string>
+    <string name="invalid_user_pass">Usuario y/o contraseña incorrectas</string>
 </resources>
