@@ -1,8 +1,5 @@
 apply from: '../../android_feature_dependencies.gradle'
 apply plugin: 'androidx.navigation.safeargs'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 android {
 
@@ -21,13 +18,11 @@ dependencies {
 
     //ANDROID
     implementation AndroidLibraries.MATERIAL
+    implementation AndroidLibraries.LIFECYCLE_LIVEDATA
 
     //LIBRARIES
     implementation Libraries.GLIDE
-
     implementation Libraries.MOSHI_KOTLIN
-    implementation AndroidLibraries.LIFECYCLE_LIVEDATA
     implementation Libraries.ANKO_DESING
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation Libraries.CIRCLE_IMAGE_VIEW
 }

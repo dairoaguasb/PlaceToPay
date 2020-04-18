@@ -6,4 +6,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="session">Iniciar sesión</string>
+    <string name="approved">Aprobadas</string>
+    <string name="slopes">Pendientes</string>
+    <string name="rejected">Rechazadas</string>
 </resources>
