@@ -1,0 +1,33 @@
+apply from: '../../android_feature_dependencies.gradle'
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled true
+    }
+}
+
+dependencies {
+
+    implementation project(ModulesDependency.LIBRARY_UICOMPONENTS)
+
+    //ANDROID
+    implementation AndroidLibraries.MATERIAL
+
+    //LIBRARIES
+    implementation Libraries.GLIDE
+
+    implementation Libraries.MOSHI_KOTLIN
+    implementation AndroidLibraries.LIFECYCLE_LIVEDATA
+    implementation Libraries.ANKO_DESING
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+}

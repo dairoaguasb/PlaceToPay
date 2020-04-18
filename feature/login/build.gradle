@@ -12,7 +12,10 @@ android {
 }
 
 dependencies {
+    implementation project(ModulesDependency.FEATURE_MAIN)
     implementation project(ModulesDependency.COMMON)
+
+    implementation project(ModulesDependency.LIBRARY_ACTIONS)
     implementation project(ModulesDependency.LIBRARY_UICOMPONENTS)
 
     implementation AndroidLibraries.APP_COMPACT

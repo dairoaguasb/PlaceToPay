@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import dairo.aguas.feature.login.R
 import dairo.aguas.feature.login.databinding.ActivityLoginBinding
+import dairo.aguas.libraries.actions.Actions
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -16,6 +17,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         configureDataBinding()
         configureToolbar()
+
+        binding.btLogin.setOnClickListener {
+            startActivity(Actions.openMainActivity(this))
+        }
     }
 
     private fun configureDataBinding() {
