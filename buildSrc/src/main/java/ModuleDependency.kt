@@ -2,6 +2,7 @@ object ModulesDependency {
 
     val FEATURE_LOGIN = ":feature:login"
     val FEATURE_MAIN = ":feature:main"
+    val FEATURE_PAYMENT = ":feature:payment"
 
     val LIBRARY_UICOMPONENTS = ":libraries:uicomponents"
     val LIBRARY_ACTIONS = ":libraries:actions"

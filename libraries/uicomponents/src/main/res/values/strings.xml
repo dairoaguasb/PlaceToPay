@@ -2,6 +2,7 @@
     <string name="app_name">PlaceToPay</string>
 
     <string name="title_login">Iniciar sesión</string>
+    <string name="title_payment_method">Agregar metodo de pago</string>
 
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -9,4 +10,18 @@
     <string name="approved">Aprobadas</string>
     <string name="slopes">Pendientes</string>
     <string name="rejected">Rechazadas</string>
+    <string name="transactions">Transacciones</string>
+
+
+    <string name="cardName">Nombre en la tarjeta</string>
+    <string name="cardNumber">Número de tarjeta</string>
+    <string name="cardDate">Fecha de expiración</string>
+    <string name="cardCode">CVV</string>
+    <string name="save_card">Guardar para pagos futuros</string>
+    <string name="add_card">Agregar tarjeta</string>
+
+    <string name="label_card_number">XXXX XXXX XXXX XXXX</string>
+    <string name="label_expired_date">MM/YY</string>
+    <string name="label_card_holder">CARD HOLDER</string>
+    <string name="label_cvv_code">CVV CODE</string>
 </resources>

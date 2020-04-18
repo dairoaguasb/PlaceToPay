@@ -2,7 +2,6 @@ apply from: '../../android_feature_dependencies.gradle'
 apply plugin: 'androidx.navigation.safeargs'
 
 android {
-
     defaultConfig {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -13,18 +12,15 @@ android {
 }
 
 dependencies {
-    implementation project(ModulesDependency.FEATURE_PAYMENT)
-
-    implementation project(ModulesDependency.LIBRARY_ACTIONS)
+    implementation project(ModulesDependency.COMMON)
     implementation project(ModulesDependency.LIBRARY_UICOMPONENTS)
 
-    //ANDROID
+    implementation AndroidLibraries.APP_COMPACT
     implementation AndroidLibraries.MATERIAL
     implementation AndroidLibraries.LIFECYCLE_LIVEDATA
 
-    //LIBRARIES
-    implementation Libraries.GLIDE
-    implementation Libraries.MOSHI_KOTLIN
-    implementation Libraries.ANKO_DESING
-    implementation Libraries.CIRCLE_IMAGE_VIEW
+    // KOIN
+    implementation Libraries.KOIN
+    implementation Libraries.KOIN_VIEW_MODEL
+    implementation Libraries.KOIN_SCOPE
 }

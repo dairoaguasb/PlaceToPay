@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import dairo.aguas.feature.main.R
+import dairo.aguas.libraries.actions.Actions
 
 class PaymentFragment : Fragment() {
 
@@ -26,6 +27,8 @@ class PaymentFragment : Fragment() {
         paymentViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+        startActivity(Actions.openPaymentActivity(context!!))
         return root
     }
 }
