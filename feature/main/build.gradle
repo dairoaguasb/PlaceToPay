@@ -14,9 +14,13 @@ android {
 
 dependencies {
     implementation project(ModulesDependency.FEATURE_PAYMENT)
+    implementation project(ModulesDependency.COMMON)
 
     implementation project(ModulesDependency.LIBRARY_ACTIONS)
     implementation project(ModulesDependency.LIBRARY_UICOMPONENTS)
+
+    implementation project(ModulesDependency.DATA_REPOSITORY)
+    implementation project(ModulesDependency.DATA_MODEL)
 
     //ANDROID
     implementation AndroidLibraries.MATERIAL

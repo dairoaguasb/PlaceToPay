@@ -9,19 +9,29 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import dairo.aguas.feature.main.R
+import dairo.aguas.feature.main.databinding.FragmentHomeBinding
+import dairo.aguas.feature.main.databinding.FragmentHomeBindingImpl
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private val viewModel: HomeViewModel by viewModel()
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        return root
+        configureDataBinding(inflater)
+        return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+    }
+
+    private fun configureDataBinding(inflater: LayoutInflater) {
+        binding = FragmentHomeBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
     }
 }

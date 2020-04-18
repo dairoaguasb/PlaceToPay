@@ -10,4 +10,6 @@ interface UserRepository {
     suspend fun setUser(user: User)
 
     suspend fun authUser(email: String, password: String): User?
+
+    suspend fun getUser(): User
 }

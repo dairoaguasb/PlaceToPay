@@ -16,4 +16,7 @@ class UserRepositoryImpl(
 
     override suspend fun authUser(email: String, password: String) =
         userDao.authUser(email, password)
+
+    override suspend fun getUser() =
+        userDao.getUser()
 }
