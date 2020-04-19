@@ -1,9 +1,11 @@
 package dairo.aguas.feature.main.ui.binding
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import dairo.aguas.common.utils.Utils
 import dairo.aguas.feature.main.R
 
 /**
@@ -21,4 +23,9 @@ fun ImageView.loadImage(urlImage: String?) {
             )
             .into(this)
     }
+}
+
+@BindingAdapter("formatMoney")
+fun TextView.formatMoney(value: Int) {
+    this.text = Utils.formatMoney(value.toString())
 }

@@ -9,21 +9,25 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import dairo.aguas.feature.main.R
+import dairo.aguas.feature.main.databinding.FragmentPaymentBinding
 import dairo.aguas.libraries.actions.Actions
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class PaymentFragment : Fragment() {
 
-    private lateinit var paymentViewModel: PaymentViewModel
+    private val viewModel: PaymentViewModel by viewModel()
+    private lateinit var binding: FragmentPaymentBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        paymentViewModel =
-            ViewModelProviders.of(this).get(PaymentViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_payment, container, false)
-//        startActivity(Actions.openPaymentActivity(context!!))
-        return root
+        configureDataBinding(inflater)
+        return binding.root
+    }
+
+    private fun configureDataBinding(inflater: LayoutInflater) {
+        binding = FragmentPaymentBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
     }
 }

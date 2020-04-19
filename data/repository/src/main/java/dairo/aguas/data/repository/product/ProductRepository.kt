@@ -10,4 +10,6 @@ interface ProductRepository {
     suspend fun insertAll(productList: List<Product>)
 
     suspend fun getProductList(): List<Product>
+
+    suspend fun getProductRandom(): Product
 }
