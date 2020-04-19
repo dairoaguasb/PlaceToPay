@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        startActivity(Actions.openSplashIntent(this))
+        startActivity(Actions.openLoginIntent(this))
         finish()
     }
 }

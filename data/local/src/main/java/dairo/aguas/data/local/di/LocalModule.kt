@@ -11,4 +11,5 @@ val localModule = module {
     single { PlaceToPayDatabase.buildDatabase(androidContext()) }
     factory { (get() as PlaceToPayDatabase).userDao() }
     factory { (get() as PlaceToPayDatabase).productDao() }
+    factory { (get() as PlaceToPayDatabase).creditCardDao() }
 }

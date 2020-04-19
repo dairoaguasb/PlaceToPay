@@ -6,7 +6,7 @@ import dairo.aguas.common.utils.Constants
 
 object Actions {
 
-    fun openSplashIntent(context: Context) =
+    fun openLoginIntent(context: Context) =
         internalIntent(context, Constants.actionLogin)
 
     fun openMainActivity(context: Context) =
