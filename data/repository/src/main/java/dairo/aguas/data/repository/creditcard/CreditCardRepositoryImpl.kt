@@ -10,7 +10,7 @@ class CreditCardRepositoryImpl(
     private val creditCardDao: CreditCardDao
 ) : CreditCardRepository {
 
-    override suspend fun insert(creditCard: CreditCard) {
+    override suspend fun setCreditCard(creditCard: CreditCard) {
         creditCardDao.insert(creditCard)
     }
 

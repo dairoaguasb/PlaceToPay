@@ -29,4 +29,10 @@
     <string name="invalid_email">Dirección de correo electrónico no válida.</string>
     <string name="invalid_pass">Lo sentimos la contraseña es muy corta.</string>
     <string name="invalid_user_pass">Usuario y/o contraseña incorrectas</string>
+    <string name="invalid_name">Por favor escriba el nombre completo.</string>
+    <string name="invalid_card">Por favor escriba el número de la tarjeta completo.</string>
+    <string name="invalid_expiration">Por favor escriba la fecha de expiración completa.</string>
+    <string name="invalid_cvv">Por favor escriba el número CVV completo.</string>
+
+
 </resources>

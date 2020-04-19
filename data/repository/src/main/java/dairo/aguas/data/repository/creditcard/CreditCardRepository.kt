@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
  */
 interface CreditCardRepository {
 
-    suspend fun insert(creditCard: CreditCard)
+    suspend fun setCreditCard(creditCard: CreditCard)
 
     fun getCreditCardFlow(): Flow<CreditCard?>
 }

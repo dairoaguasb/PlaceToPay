@@ -15,6 +15,7 @@ android {
 dependencies {
     implementation project(ModulesDependency.FEATURE_LOGIN)
     implementation project(ModulesDependency.FEATURE_MAIN)
+    implementation project(ModulesDependency.FEATURE_PAYMENT)
     implementation project(ModulesDependency.DATA_REMOTE)
     implementation project(ModulesDependency.DATA_LOCAL)
     implementation project(ModulesDependency.DATA_REPOSITORY)
