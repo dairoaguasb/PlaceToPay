@@ -2,6 +2,10 @@ apply plugin: 'com.android.library'
 apply from: '../../android_feature_dependencies.gradle'
 
 dependencies {
+
+    implementation project(ModulesDependency.DATA_MODEL)
+    implementation project(ModulesDependency.COMMON)
+
     // KOTLIN
     implementation KotlinLibraries.KOTLIN
     // NETWORK
@@ -11,10 +15,6 @@ dependencies {
     implementation Libraries.RETROFIT
     implementation Libraries.RETROFIT_MOSHI_CONVERTER
     implementation Libraries.OKHTTP_LOGGING_INTERCEPTOR
-    // DATA MODULE
-    implementation project(ModulesDependency.DATA_MODEL)
-
-    implementation project(ModulesDependency.COMMON)
     // KOIN
     implementation Libraries.KOIN
     implementation Libraries.KOIN_VIEW_MODEL
