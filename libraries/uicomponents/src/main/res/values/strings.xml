@@ -33,6 +33,7 @@
     <string name="invalid_card">Por favor escriba el número de la tarjeta completo.</string>
     <string name="invalid_expiration">Por favor escriba la fecha de expiración completa.</string>
     <string name="invalid_cvv">Por favor escriba el número CVV completo.</string>
+    <string name="pay">PAGAR</string>
 
 
 </resources>

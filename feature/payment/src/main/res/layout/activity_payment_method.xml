@@ -50,8 +50,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/cardName"
-                android:inputType="textPersonName"
-                android:singleLine="true" />
+                android:inputType="textCapCharacters"
+                android:singleLine="true"
+                tools:text="DAIRO AGUAS BARRAZA" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -119,7 +120,8 @@
                 android:hint="@string/cardCode"
                 android:inputType="number"
                 android:maxLength="3"
-                android:singleLine="true" />
+                android:singleLine="true"
+                tools:text="112" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton

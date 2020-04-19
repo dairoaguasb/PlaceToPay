@@ -49,6 +49,10 @@ class PaymentFragment : Fragment() {
     private fun handleCreditCard(creditCard: CreditCard?) {
         creditCard?.apply {
             binding.cvCard.visibility = View.VISIBLE
+            binding.tvCardNumber.text = numberCreditCard
+            binding.tvCardExpiration.text = expirationCard
+            binding.tvCardName.text = nameCreditCard
+            binding.tvCardCVV.text = ccv
         }
     }
 }
