@@ -1,6 +1,7 @@
 package dairo.aguas.feature.login.di
 
 import dairo.aguas.feature.login.domain.AuthUserLocal
+import dairo.aguas.feature.login.domain.SetProductListLocal
 import dairo.aguas.feature.login.domain.SetUserLocal
 import dairo.aguas.feature.login.ui.main.LoginViewModel
 import org.koin.android.ext.koin.androidContext
@@ -13,5 +14,6 @@ import org.koin.dsl.module
 val loginModule = module {
     factory { SetUserLocal(get()) }
     factory { AuthUserLocal(get()) }
-    viewModel { LoginViewModel(get(), get(), androidContext()) }
+    factory { SetProductListLocal(get()) }
+    viewModel { LoginViewModel(get(), get(), get(), androidContext()) }
 }

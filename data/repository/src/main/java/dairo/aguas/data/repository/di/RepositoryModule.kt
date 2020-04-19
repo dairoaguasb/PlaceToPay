@@ -1,5 +1,7 @@
 package dairo.aguas.data.repository.di
 
+import dairo.aguas.data.repository.product.ProductRepository
+import dairo.aguas.data.repository.product.ProductRepositoryImpl
 import dairo.aguas.data.repository.user.UserRepository
 import dairo.aguas.data.repository.user.UserRepositoryImpl
 import org.koin.dsl.module
@@ -9,4 +11,5 @@ import org.koin.dsl.module
  */
 val repositoryModule = module {
     factory { UserRepositoryImpl(get()) as UserRepository }
+    factory { ProductRepositoryImpl(get()) as ProductRepository }
 }
