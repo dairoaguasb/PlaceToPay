@@ -3,6 +3,7 @@ package dairo.aguas.data.remote.di
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import dairo.aguas.data.remote.ApiServices
+import dairo.aguas.data.remote.transaction.TransactionDatasource
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -21,6 +22,8 @@ fun createRemoteModule(baseUrl: String, debugMode: Boolean) = module {
     single { createMoshiConverterFactory() }
 
     single { createMoshi() }
+
+    factory { TransactionDatasource(get(), get()) }
 }
 
 fun createService(retrofit: Retrofit): ApiServices {
