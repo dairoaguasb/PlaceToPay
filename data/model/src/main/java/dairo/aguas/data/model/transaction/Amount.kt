@@ -7,5 +7,5 @@ import com.squareup.moshi.Json
  */
 data class Amount(
     @Json(name = "total") val total: Int,
-    @Json(name = "currency") val currency: String
+    @Json(name = "currency") val currency: String = "COP"
 )
