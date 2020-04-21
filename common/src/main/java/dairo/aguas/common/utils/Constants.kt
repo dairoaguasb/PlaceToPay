@@ -17,7 +17,8 @@ object Constants {
     const val urlImage =
         "https://firebasestorage.googleapis.com/v0/b/laplazita-af123.appspot.com/o/user.jpg?alt=media&token=af508f13-1042-4287-a863-d4c989a10309"
 
-    const val SDF = "yyyy-MM-dd'T'HH:mm:ssX':00'"
+//    const val SDF = "yyyy-MM-dd'T'HH:mm:ssX':00'"
+    const val SDF = "yyyy-MM-dd'T'HH:mm:ssZ"
     const val SDF_LOCAL = "yyyy-MM-dd HH:mm:ss"
 
     const val TRANSACTION_FAILED = "FAILED"

@@ -22,4 +22,7 @@ class TransactionRepositoryImpl(
 
     override suspend fun getTransactionByInternalReference(internalReference: Int) =
         transactionDao.getTransactionsByInternalReference(internalReference)
+
+    override fun getTransactionLocalListFlow() =
+        transactionDao.getTransactionListFlow()
 }

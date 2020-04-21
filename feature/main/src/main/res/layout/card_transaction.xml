@@ -18,11 +18,12 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cvTransaction"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="110dp"
         android:layout_margin="3dp"
         android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{() -> clickListener.onClickListener(transaction)}"
         app:cardCornerRadius="10dp"
-        app:cardElevation="0dp"
+        app:cardElevation="4dp"
         app:cardPreventCornerOverlap="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,6 +44,7 @@
                 app:layout_constraintRight_toLeftOf="@+id/guideline4"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5"
+                app:loadImage="@{transaction.imageProduct}"
                 app:srcCompat="@drawable/ic_image" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -68,6 +70,7 @@
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="4dp"
+                    android:text="@{transaction.reference}"
                     android:textColor="@android:color/background_dark"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toStartOf="@+id/ivDelete"
@@ -82,6 +85,7 @@
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="4dp"
                     android:textColor="@android:color/background_dark"
+                    app:formatDate="@{transaction.date}"
                     app:layout_constraintEnd_toStartOf="@+id/btRetry"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvPriceProduct"
@@ -90,14 +94,16 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btRetry"
                     style="@style/Widget.AppCompat.Button"
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:elevation="3dp"
+                    android:onClick="@{() -> clickListener.onClickRetry(transaction)}"
                     android:text="@string/retry"
                     android:textSize="12sp"
                     android:theme="@style/ButtonPrincipal"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:visible="@{transaction.status}" />
 
                 <TextView
                     android:id="@+id/tvStatus"
@@ -107,6 +113,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="12sp"
                     android:textStyle="bold"
+                    app:formatTransaction="@{transaction.status}"
                     app:layout_constraintBottom_toTopOf="@+id/btRetry"
                     app:layout_constraintEnd_toEndOf="@+id/btRetry"
                     app:layout_constraintRight_toRightOf="parent"
@@ -120,6 +127,7 @@
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="4dp"
                     android:textColor="@android:color/black"
+                    app:formatMoney="@{transaction.price}"
                     app:layout_constraintEnd_toStartOf="@+id/btRetry"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvNameProduct"
@@ -131,7 +139,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="4dp"
+                    android:text="@{transaction.franchiseName}"
                     android:textColor="@android:color/black"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/tvLastDigits"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +153,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
+                    android:text="@{transaction.lastDigits}"
                     android:textColor="@android:color/black"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/btRetry"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/tvFranchise"
@@ -152,8 +164,9 @@
 
                 <ImageView
                     android:id="@+id/ivDelete"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> clickListener.onClickDelete(transaction)}"
                     android:padding="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

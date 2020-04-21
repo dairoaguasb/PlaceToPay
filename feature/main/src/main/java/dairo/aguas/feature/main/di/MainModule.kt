@@ -1,6 +1,7 @@
 package dairo.aguas.feature.main.di
 
 import dairo.aguas.feature.main.domain.*
+import dairo.aguas.feature.main.ui.history.HistoryViewModel
 import dairo.aguas.feature.main.ui.home.HomeViewModel
 import dairo.aguas.feature.main.ui.payment.PaymentViewModel
 import dairo.aguas.feature.main.ui.resume.ResumeViewModel
@@ -18,7 +19,9 @@ val mainModule = module {
     factory { ProcessTransaction(get()) }
     factory { SetTransactionLocal(get(), get()) }
     factory { GetTransactionLocal(get()) }
+    factory { GetTransactionsLocalFlow(get()) }
     viewModel { HomeViewModel(get()) }
     viewModel { PaymentViewModel(get(), get(), get(), get(), get(), androidContext()) }
     viewModel { ResumeViewModel(get()) }
+    viewModel { HistoryViewModel(get()) }
 }

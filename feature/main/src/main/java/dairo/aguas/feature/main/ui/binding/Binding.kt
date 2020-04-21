@@ -1,5 +1,6 @@
 package dairo.aguas.feature.main.ui.binding
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -43,5 +44,12 @@ fun TextView.formatDate(date: String?) {
 fun TextView.formatTransaction(status: String?) {
     status?.let {
         this.text = Utils.formatTransaction(it)
+    }
+}
+
+@BindingAdapter("visible")
+fun View.visible(status: String?) {
+    status?.let {
+        visibility = if (status == Constants.PENDING) View.VISIBLE else View.INVISIBLE
     }
 }
