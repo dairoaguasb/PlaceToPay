@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -62,12 +63,17 @@ class PaymentFragment : Fragment() {
 
     private fun handleUI(uiModel: PaymentUiModel) {
         uiModel.apply {
-            if (showProgress) {
-                binding.pbLoading.visibility = uiModel.toggleVisibility(showProgress)
-                binding.cvCard.isEnabled = false
-                binding.clCard.setBackgroundColor(ContextCompat.getColor(context!!, R.color.dark_gray))
-                binding.btAdd.isEnabled = false
-            }
+            binding.pbLoading.visibility = uiModel.toggleVisibility(showProgress)
+            if (showProgress) disableViews()
+
+            if (showMessageAlert.isNotEmpty())
+                Toast.makeText(context, showMessageAlert, Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun disableViews() {
+        binding.cvCard.isEnabled = false
+        binding.clCard.setBackgroundColor(ContextCompat.getColor(context!!, R.color.dark_gray))
+        binding.btAdd.isEnabled = false
     }
 }

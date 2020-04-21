@@ -1,9 +1,6 @@
 package dairo.aguas.feature.main.di
 
-import dairo.aguas.feature.main.domain.GetCreditCardLocalFlow
-import dairo.aguas.feature.main.domain.GetProductLocal
-import dairo.aguas.feature.main.domain.GetUserLocal
-import dairo.aguas.feature.main.domain.ProcessTransaction
+import dairo.aguas.feature.main.domain.*
 import dairo.aguas.feature.main.ui.home.HomeViewModel
 import dairo.aguas.feature.main.ui.payment.PaymentViewModel
 import org.koin.android.ext.koin.androidContext
@@ -18,6 +15,7 @@ val mainModule = module {
     factory { GetProductLocal(get()) }
     factory { GetCreditCardLocalFlow(get()) }
     factory { ProcessTransaction(get()) }
+    factory { SetTransactionLocal(get(), get()) }
     viewModel { HomeViewModel(get()) }
-    viewModel { PaymentViewModel(get(), get(), get(), get(), androidContext()) }
+    viewModel { PaymentViewModel(get(), get(), get(), get(), get(), androidContext()) }
 }

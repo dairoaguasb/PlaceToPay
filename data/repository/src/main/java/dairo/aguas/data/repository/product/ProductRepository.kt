@@ -12,4 +12,6 @@ interface ProductRepository {
     suspend fun getProductList(): List<Product>
 
     suspend fun getProductRandom(): Product
+
+    suspend fun getProductByName(nameProduct: String) : Product
 }

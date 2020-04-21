@@ -8,6 +8,7 @@ data class TransactionResponse(
     @Json(name = "reference") val reference: String = "",
     @Json(name = "paymentMethod") val paymentMethod: String = "",
     @Json(name = "lastDigits") val lastDigits: String = "",
-    @Json(name = "franchiseName") val franchiseName: String = ""
+    @Json(name = "franchiseName") val franchiseName: String = "",
+    @Json(name = "amount") val amount: Amount
 )
 

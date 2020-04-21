@@ -17,5 +17,5 @@ val repositoryModule = module {
     factory { UserRepositoryImpl(get()) as UserRepository }
     factory { ProductRepositoryImpl(get()) as ProductRepository }
     factory { CreditCardRepositoryImpl(get()) as CreditCardRepository }
-    factory { TransactionRepositoryImpl(get()) as TransactionRepository }
+    factory { TransactionRepositoryImpl(get(), get()) as TransactionRepository }
 }

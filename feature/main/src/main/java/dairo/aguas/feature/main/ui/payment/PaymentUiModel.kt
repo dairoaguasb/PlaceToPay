@@ -7,7 +7,9 @@ import android.view.View
  */
 data class PaymentUiModel(
     val showMessageAlert: String,
-    val showProgress: Boolean
+    val showProgress: Boolean,
+    val showDialogResume: Boolean,
+    val internalReference: Int
 ) {
     fun toggleVisibility(showProgress: Boolean) =
         when (showProgress) {

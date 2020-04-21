@@ -3,16 +3,15 @@ package dairo.aguas.feature.main.ui.payment
 import android.content.Context
 import androidx.lifecycle.*
 import dairo.aguas.common.utils.AssetsPropertyReader
+import dairo.aguas.common.utils.Constants
 import dairo.aguas.common.utils.GenerateAuth
 import dairo.aguas.data.model.creditcard.CreditCard
 import dairo.aguas.data.model.product.Product
 import dairo.aguas.data.model.transaction.*
 import dairo.aguas.data.model.user.User
+import dairo.aguas.data.model.vo.Result
 import dairo.aguas.feature.main.BuildConfig
-import dairo.aguas.feature.main.domain.GetCreditCardLocalFlow
-import dairo.aguas.feature.main.domain.GetProductLocal
-import dairo.aguas.feature.main.domain.GetUserLocal
-import dairo.aguas.feature.main.domain.ProcessTransaction
+import dairo.aguas.feature.main.domain.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -20,6 +19,7 @@ class PaymentViewModel(
     private val getProductLocal: GetProductLocal,
     private val getUserLocal: GetUserLocal,
     private val processTransaction: ProcessTransaction,
+    private val setTransactionLocal: SetTransactionLocal,
     getCreditCardLocalFlow: GetCreditCardLocalFlow,
     private val context: Context
 ) : ViewModel() {
@@ -64,7 +64,40 @@ class PaymentViewModel(
 
         val transactionBody = TransactionBody(generateAuth(), payment, instrument, payer)
         viewModelScope.launch(Dispatchers.IO) {
-            processTransaction.execute(transactionBody)
+            processTransaction.execute(transactionBody).also {
+                validateTransactionResult(it)
+            }
+        }
+    }
+
+    private fun validateTransactionResult(resultTransaction: Result<TransactionResponse>) {
+        when (resultTransaction) {
+            is Result.Failure -> {
+                emitUiState(showMessageAlert = resultTransaction.exception.message!!)
+            }
+            is Result.Success -> {
+                validateTransactionData(resultTransaction.data)
+            }
+        }
+    }
+
+    private fun validateTransactionData(transactionResponse: TransactionResponse) {
+        emitUiState(showProgress = false)
+        if (transactionResponse.status.status != Constants.TRANSACTION_FAILED) {
+            setTransactionLocal(transactionResponse)
+        } else {
+            emitUiState(showMessageAlert = transactionResponse.status.message)
+        }
+    }
+
+    private fun setTransactionLocal(transactionResponse: TransactionResponse) {
+        viewModelScope.launch(Dispatchers.IO) {
+            setTransactionLocal.execute(transactionResponse).also {
+                emitUiState(
+                    showDialogResume = true,
+                    internalReference = transactionResponse.internalReference
+                )
+            }
         }
     }
 
@@ -90,9 +123,15 @@ class PaymentViewModel(
         }
     }
 
-    private fun emitUiState(showProgress: Boolean = false, showMessageAlert: String = "") {
+    private fun emitUiState(
+        showProgress: Boolean = false,
+        showMessageAlert: String = "",
+        showDialogResume: Boolean = false,
+        internalReference: Int = 0
+    ) {
         viewModelScope.launch(Dispatchers.Main) {
-            val uiModel = PaymentUiModel(showMessageAlert, showProgress)
+            val uiModel =
+                PaymentUiModel(showMessageAlert, showProgress, showDialogResume, internalReference)
             _uiModel.value = uiModel
         }
     }

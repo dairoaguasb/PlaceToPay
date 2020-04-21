@@ -2,6 +2,7 @@ package dairo.aguas.data.repository.transaction
 
 import dairo.aguas.data.model.transaction.TransactionBody
 import dairo.aguas.data.model.transaction.TransactionResponse
+import dairo.aguas.data.model.transaction.Transactions
 import dairo.aguas.data.model.vo.Result
 
 /**
@@ -10,4 +11,6 @@ import dairo.aguas.data.model.vo.Result
 interface TransactionRepository {
 
     suspend fun processTransaction(transactionBody: TransactionBody): Result<TransactionResponse>
+
+    suspend fun setTransactionLocal(transactions: Transactions)
 }

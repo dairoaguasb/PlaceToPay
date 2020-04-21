@@ -18,4 +18,7 @@ object Constants {
         "https://firebasestorage.googleapis.com/v0/b/laplazita-af123.appspot.com/o/user.jpg?alt=media&token=af508f13-1042-4287-a863-d4c989a10309"
 
     const val SDF = "yyyy-MM-dd'T'HH:mm:ssX':00'"
+
+    const val TRANSACTION_FAILED = "FAILED"
+    const val TRANSACTION_APPROVED = "APPROVED"
 }

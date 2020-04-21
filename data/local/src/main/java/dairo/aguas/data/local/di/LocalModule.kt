@@ -12,4 +12,5 @@ val localModule = module {
     factory { (get() as PlaceToPayDatabase).userDao() }
     factory { (get() as PlaceToPayDatabase).productDao() }
     factory { (get() as PlaceToPayDatabase).creditCardDao() }
+    factory { (get() as PlaceToPayDatabase).transactionsDao() }
 }

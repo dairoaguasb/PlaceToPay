@@ -17,4 +17,7 @@ class ProductRepositoryImpl(private val productDao: ProductDao) : ProductReposit
 
     override suspend fun getProductRandom() =
         productDao.getProductRandom()
+
+    override suspend fun getProductByName(nameProduct: String) =
+        productDao.getProductByName(nameProduct)
 }

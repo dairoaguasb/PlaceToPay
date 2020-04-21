@@ -20,4 +20,7 @@ interface ProductDao {
 
     @Query("SELECT * FROM product ORDER BY RANDOM() LIMIT 1")
     suspend fun getProductRandom(): Product
+
+    @Query("SELECT * FROM product WHERE nameProduct = :nameProduct")
+    suspend fun getProductByName(nameProduct: String) : Product
 }
