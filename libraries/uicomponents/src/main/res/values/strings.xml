@@ -41,6 +41,7 @@
     <string name="retry">Reintentar</string>
     <string name="info">Información</string>
     <string name="accept">Aceptar</string>
+    <string name="new_product">Nuevo producto random.</string>
 
 
 </resources>

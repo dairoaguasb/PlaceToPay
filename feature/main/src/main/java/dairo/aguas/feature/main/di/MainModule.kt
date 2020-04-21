@@ -20,8 +20,9 @@ val mainModule = module {
     factory { SetTransactionLocal(get(), get()) }
     factory { GetTransactionLocal(get()) }
     factory { GetTransactionsLocalFlow(get()) }
+    factory { GetTransactionsLocal(get()) }
     factory { DeleteTransactionLocal(get()) }
-    viewModel { HomeViewModel(get()) }
+    viewModel { HomeViewModel(get(), get()) }
     viewModel { PaymentViewModel(get(), get(), get(), get(), get(), androidContext()) }
     viewModel { ResumeViewModel(get()) }
     viewModel { HistoryViewModel(get(), get()) }

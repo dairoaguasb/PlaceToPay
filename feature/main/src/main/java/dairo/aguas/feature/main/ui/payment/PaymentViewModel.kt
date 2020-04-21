@@ -40,7 +40,7 @@ class PaymentViewModel(
         getUserLocal()
     }
 
-    private fun getProductLocal() {
+    fun getProductLocal() {
         viewModelScope.launch(Dispatchers.IO) {
             getProductLocal.execute().also {
                 viewModelScope.launch(Dispatchers.Main) {

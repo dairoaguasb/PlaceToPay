@@ -67,6 +67,7 @@ class PaymentFragment : Fragment() {
         uiModel.apply {
             binding.pbLoading.visibility = uiModel.toggleVisibility(showProgress)
             if (showProgress) disableViews()
+            else enableViews()
 
             if (showMessageAlert.isNotEmpty())
                 Toast.makeText(context, showMessageAlert, Toast.LENGTH_LONG).show()
@@ -80,8 +81,21 @@ class PaymentFragment : Fragment() {
 
     private fun disableViews() {
         binding.cvCard.isEnabled = false
-        binding.clCard.setBackgroundColor(ContextCompat.getColor(context!!, R.color.dark_gray))
         binding.btAdd.isEnabled = false
+        binding.clCard.setBackgroundColor(ContextCompat.getColor(context!!, R.color.dark_gray))
+    }
+
+    private fun enableViews() {
+        binding.cvCard.isEnabled = true
+        binding.btAdd.isEnabled = true
+        binding.clCard.background =
+            ContextCompat.getDrawable(context!!, R.drawable.background_gradient)
+        generateNewProduct()
+    }
+
+    private fun generateNewProduct() {
+        viewModel.getProductLocal()
+        Toast.makeText(context!!, getString(R.string.new_product), Toast.LENGTH_SHORT).show()
     }
 
     private fun showResumeDialog(internalReference: Int) {

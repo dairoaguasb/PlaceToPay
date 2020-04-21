@@ -22,6 +22,9 @@ interface TransactionDao {
     @Query("SELECT * FROM transactions ORDER BY idAuto DESC")
     fun getTransactionListFlow(): Flow<List<Transactions>>
 
+    @Query("SELECT * FROM transactions ORDER BY idAuto DESC")
+    suspend fun getTransactionList(): List<Transactions>
+
     @Query("DELETE FROM transactions WHERE idAuto = :idAuto")
     suspend fun deleteTransaction(idAuto: Int)
 }
