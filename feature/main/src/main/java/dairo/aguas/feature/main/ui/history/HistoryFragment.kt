@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dairo.aguas.common.utils.Constants
 import dairo.aguas.data.model.transaction.Transactions
 import dairo.aguas.feature.main.R
 import dairo.aguas.feature.main.databinding.FragmentHistoryBinding
@@ -58,7 +60,7 @@ class HistoryFragment : Fragment(), OnListenerTransaction {
     }
 
     override fun onClickListener(transactions: Transactions) {
-        Toast.makeText(context!!, transactions.message, Toast.LENGTH_LONG).show()
+        showAlertDialog(transactions.message)
     }
 
     override fun onClickDelete(transactions: Transactions) {
@@ -67,5 +69,14 @@ class HistoryFragment : Fragment(), OnListenerTransaction {
 
     override fun onClickRetry(transactions: Transactions) {
         TODO("Not yet implemented")
+    }
+
+    private fun showAlertDialog(message: String) {
+        MaterialAlertDialogBuilder(context, R.style.AlertDialogThemeOneButton)
+            .setTitle(getString(R.string.info))
+            .setMessage(message)
+            .setPositiveButton(getString(R.string.accept)) { _, _ -> }
+            .setCancelable(false)
+            .show();
     }
 }
