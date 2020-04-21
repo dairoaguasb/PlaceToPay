@@ -3,6 +3,7 @@ package dairo.aguas.data.local.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import dairo.aguas.data.model.transaction.Transactions
 
 /**
@@ -13,4 +14,7 @@ interface TransactionDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(transactions: Transactions)
+
+    @Query("SELECT * FROM transactions WHERE internalReference = :internalReference")
+    suspend fun getTransactionsByInternalReference(internalReference: Int): Transactions
 }

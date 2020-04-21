@@ -8,9 +8,11 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import dairo.aguas.common.utils.Constants
 import dairo.aguas.data.model.creditcard.CreditCard
 import dairo.aguas.feature.main.R
 import dairo.aguas.feature.main.databinding.FragmentPaymentBinding
+import dairo.aguas.feature.main.ui.resume.ResumeFragment
 import dairo.aguas.libraries.actions.Actions
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -68,6 +70,11 @@ class PaymentFragment : Fragment() {
 
             if (showMessageAlert.isNotEmpty())
                 Toast.makeText(context, showMessageAlert, Toast.LENGTH_LONG).show()
+
+            if (showDialogResume) {
+                showDialogResume = false
+                showResumeDialog(internalReference)
+            }
         }
     }
 
@@ -75,5 +82,13 @@ class PaymentFragment : Fragment() {
         binding.cvCard.isEnabled = false
         binding.clCard.setBackgroundColor(ContextCompat.getColor(context!!, R.color.dark_gray))
         binding.btAdd.isEnabled = false
+    }
+
+    private fun showResumeDialog(internalReference: Int) {
+        val resumeFragment = ResumeFragment()
+        val args = Bundle()
+        args.putInt(Constants.INTERNAL_REFERENCE, internalReference)
+        resumeFragment.arguments = args
+        resumeFragment.show(activity!!.supportFragmentManager, "dialog")
     }
 }

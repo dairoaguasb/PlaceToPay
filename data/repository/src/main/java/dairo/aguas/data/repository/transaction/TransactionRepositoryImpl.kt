@@ -19,4 +19,7 @@ class TransactionRepositoryImpl(
     override suspend fun setTransactionLocal(transactions: Transactions) {
         transactionDao.insert(transactions)
     }
+
+    override suspend fun getTransactionByInternalReference(internalReference: Int) =
+        transactionDao.getTransactionsByInternalReference(internalReference)
 }

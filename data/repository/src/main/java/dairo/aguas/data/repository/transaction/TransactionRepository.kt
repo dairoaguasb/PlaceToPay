@@ -13,4 +13,6 @@ interface TransactionRepository {
     suspend fun processTransaction(transactionBody: TransactionBody): Result<TransactionResponse>
 
     suspend fun setTransactionLocal(transactions: Transactions)
+
+    suspend fun getTransactionByInternalReference(internalReference: Int): Transactions
 }

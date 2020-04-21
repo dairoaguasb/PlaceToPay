@@ -1,9 +1,11 @@
 package dairo.aguas.common.utils
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import java.text.DecimalFormat
+import java.text.SimpleDateFormat
 
 object Utils {
 
@@ -18,6 +20,23 @@ object Utils {
         val decimalFormat = DecimalFormat("#,###")
         return "$" + decimalFormat.format(value.toDouble()).replace(",", ".")
     }
+
+    @SuppressLint("SimpleDateFormat")
+    fun formatDate(date: String): String {
+        val sdfInput = SimpleDateFormat(Constants.SDF)
+        val sdfOutput = SimpleDateFormat(Constants.SDF_LOCAL)
+        return sdfOutput.format(sdfInput.parse(date)!!)
+    }
+
+    fun formatTransaction(status: String) =
+        when (status) {
+            Constants.TRANSACTION_APPROVED -> Constants.APPROVED
+            Constants.TRANSACTION_REJECTED -> Constants.REJECTED
+            Constants.TRANSACTION_PENDING -> Constants.PENDING
+            Constants.TRANSACTION_MANUAL -> Constants.MANUAL
+            Constants.TRANSACTION_REFUNDED -> Constants.REFUNDED
+            else -> Constants.FAILED
+        }
 }
 
 fun String.getMD5(): String {
