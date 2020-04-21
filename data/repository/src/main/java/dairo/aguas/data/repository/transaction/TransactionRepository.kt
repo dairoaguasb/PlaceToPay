@@ -18,4 +18,6 @@ interface TransactionRepository {
     suspend fun getTransactionByInternalReference(internalReference: Int): Transactions
 
     fun getTransactionLocalListFlow(): Flow<List<Transactions>>
+
+    suspend fun deleteTransaction(idAuto: Int)
 }

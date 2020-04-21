@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -57,11 +58,11 @@ class HistoryFragment : Fragment(), OnListenerTransaction {
     }
 
     override fun onClickListener(transactions: Transactions) {
-        TODO("Not yet implemented")
+        Toast.makeText(context!!, transactions.message, Toast.LENGTH_LONG).show()
     }
 
     override fun onClickDelete(transactions: Transactions) {
-        TODO("Not yet implemented")
+        viewModel.deleteTransaction(transactions.idAuto)
     }
 
     override fun onClickRetry(transactions: Transactions) {

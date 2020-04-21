@@ -25,4 +25,8 @@ class TransactionRepositoryImpl(
 
     override fun getTransactionLocalListFlow() =
         transactionDao.getTransactionListFlow()
+
+    override suspend fun deleteTransaction(idAuto: Int) {
+        transactionDao.deleteTransaction(idAuto)
+    }
 }
