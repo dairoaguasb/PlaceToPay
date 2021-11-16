@@ -1,2 +1,1 @@
 # PlaceToPay
-Prueba Técnica PlaceToPay.
